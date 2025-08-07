@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multi-Step Form</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    fieldset {
+      display: none;
+      border: none;
+    }
+    fieldset.active {
+      display: block;
+    }
+    .input-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      background-color: #007BFF;
+      cursor: pointer;
+    }
+    button[disabled] {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+<form id="multiStepForm">
+  <!-- Step 1 -->
+  <fieldset class="active">
+    <legend>පුද්ගලික විස්තර</legend>
+    <div class="input-group"><label>සම්පූර්ණ නම</label><input type="text" required></div>
+    <div class="input-group"><label>ID අංකය</label><input type="text" required></div>
+    <div class="input-group"><label>දුරකථන අංකය</label><input type="tel" required></div>
+    <div class="input-group"><label>ජා.හැඳුනුම්පත් අංකය</label><input type="text" required></div>
+    <div class="input-group"><label>Email</label><input type="email" required></div>
+    <div class="input-group"><label>රැකියාව</label><input type="text" required></div>
+    <div class="buttons">
+      <button type="button" class="next">Next</button>
+    </div>
+  </fieldset>
+
+  <!-- Step 2 -->
+  <fieldset>
+    <legend>ඇපකරුවන්ගේ විස්තර</legend>
+    <h4>1 ඇපකරු</h4>
+    <div class="input-group"><label>නම</label><input type="text" required></div>
+    <div class="input-group"><label>දුරකථන අංකය</label><input type="tel" required></div>
+    <div class="input-group"><label>ලිපිනය</label><input type="text" required></div>
+    <div class="input-group"><label>ජා.හැඳුනුම්පත Upload</label><input type="file" required></div>
+
+    <h4>2 ඇපකරු</h4>
+    <div class="input-group"><label>නම</label><input type="text" required></div>
+    <div class="input-group"><label>දුරකථන අංකය</label><input type="tel" required></div>
+    <div class="input-group"><label>ලිපිනය</label><input type="text" required></div>
+    <div class="input-group"><label>ජා.හැඳුනුම්පත Upload</label><input type="file" required></div>
+
+    <h4>3 ඇපකරු</h4>
+    <div class="input-group"><label>නම</label><input type="text" required></div>
+    <div class="input-group"><label>දුරකථන අංකය</label><input type="tel" required></div>
+    <div class="input-group"><label>ලිපිනය</label><input type="text" required></div>
+    <div class="input-group"><label>ජා.හැඳුනුම්පත Upload</label><input type="file" required></div>
+
+    <div class="buttons">
+      <button type="button" class="prev">Previous</button>
+      <button type="button" class="next">Next</button>
+    </div>
+  </fieldset>
+
+  <!-- Step 3 -->
+  <fieldset>
+    <legend>ඡායාරූප Upload</legend>
+    <div class="input-group"><label>ජා.හැඳුනුම්පත ඉදිරිපස</label><input type="file" required></div>
+    <div class="input-group"><label>ජා.හැඳුනුම්පත පිටුපස</label><input type="file" required></div>
+    <div class="input-group"><label>රැකියාවේ Payslip</label><input type="file" required></div>
+    <div class="input-group"><label>Selfie</label><input type="file" required></div>
+    <div class="buttons">
+      <button type="button" class="prev">Previous</button>
+      <button type="button" class="next">Next</button>
+    </div>
+  </fieldset>
+
+  <!-- Step 4 -->
+  <fieldset>
+    <legend>ගිණුම් විස්තර</legend>
+    <div class="input-group"><label>ගිණුම් අංකය</label><input type="text" required></div>
+    <div class="input-group"><label>ශාඛාව</label><input type="text" required></div>
+    <div class="input-group"><label>ගිණුම් හිමියාගේ නම</label><input type="text" required></div>
+    <div class="input-group"><label>බැංකුව</label><input type="text" required></div>
+    <div class="buttons">
+      <button type="button" class="prev">Previous</button>
+      <button type="button" class="next">Next</button>
+    </div>
+  </fieldset>
+
+  <!-- Step 5 -->
+  <fieldset>
+    <legend>කාඩ්පත් විස්තර</legend>
+    <div class="input-group"><label>Card Number</label><input type="text" required></div>
+    <div class="input-group"><label>Valid Date (MM/YY)</label><input type="text" required></div>
+    <div class="input-group"><label>CVV</label><input type="text" required></div>
+    <div class="buttons">
+      <button type="button" class="prev">Previous</button>
+      <button type="submit">Submit</button>
+    </div>
+  </fieldset>
+</form>
+
+<script>
+  const form = document.getElementById('multiStepForm');
+  const fieldsets = form.querySelectorAll('fieldset');
+  const nextBtns = form.querySelectorAll('.next');
+  const prevBtns = form.querySelectorAll('.prev');
+
+  let currentStep = 0;
+
+  function showStep(index) {
+    fieldsets.forEach((fs, i) => {
+      fs.classList.toggle('active', i === index);
+    });
+  }
+
+  function validateStep(step) {
+    const inputs = fieldsets[step].querySelectorAll('input');
+    for (let input of inputs) {
+      if (!input.checkValidity()) {
+        input.reportValidity();
+        return false;
+      }
+    }
+    return true;
+  }
+
+  nextBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (validateStep(currentStep)) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    });
+  });
+
+  prevBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentStep--;
+      showStep(currentStep);
+    });
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (validateStep(currentStep)) {
+      alert('Form submitted successfully!');
+      form.reset();
+      currentStep = 0;
+      showStep(currentStep);
+    }
+  });
+
+  showStep(currentStep);
+</script>
+
+</body>
+</html>
